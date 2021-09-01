@@ -405,29 +405,28 @@ Person.prototype.fullNameReversed = function() {
     return this.last + ', ' + this.first;
 }`
     },
-    // {
-    //     textContent: `Você pode usar ++ e -- para incrementar ou decrementar respectivamente. Eles podem ser usados como operadores tanto antes como depois.`,
-    //     codeString: `404`
-    // },
-    // {
-    //     textContent: `Você pode usar ++ e -- para incrementar ou decrementar respectivamente. Eles podem ser usados como operadores tanto antes como depois.`,
-    //     codeString: `404`
-    // },
-    // {
-    //     textContent: `Você pode usar ++ e -- para incrementar ou decrementar respectivamente. Eles podem ser usados como operadores tanto antes como depois.`,
-    //     codeString: `404`
-    // },
-    // {
-    //     textContent: `Você pode usar ++ e -- para incrementar ou decrementar respectivamente. Eles podem ser usados como operadores tanto antes como depois.`,
-    //     codeString: `404`
-    // },
-    // {
-    //     textContent: `Você pode usar ++ e -- para incrementar ou decrementar respectivamente. Eles podem ser usados como operadores tanto antes como depois.`,
-    //     codeString: `404`
-    // },
-    // {
-    //     textContent: `Você pode usar ++ e -- para incrementar ou decrementar respectivamente. Eles podem ser usados como operadores tanto antes como depois.`,
-    //     codeString: `404`
-    // },
+    {
+        textContent: `Esta é uma ferramenta incrivelmente poderosa. JavaScript permite a você modificar algo prototipado em qualquer momento no seu programa. Isto significa que você pode adicionar métodos extras para objetos pré-existentes, em tempo de execução:`,
+        codeString: `> s = new Person("Simon", "Willison");
+> s.firstNameCaps();
+TypeError on line 1: s.firstNameCaps is not a function
+> Person.prototype.firstNameCaps = function() {
+    return this.first.toUpperCase()
+}
+> s.firstNameCaps()
+SIMON`
+    },
+    {
+        textContent: `Clausuras (Closures). Isto nos leva a uma das abstrações mais poderosas que JavaScript tem a oferecer — mas também a mais potencionalmente confusa.`,
+        codeString: `function makeAdder(a) {
+  return function(b) {
+    return a + b;
+  };
+}
+var x = makeAdder(5);
+var y = makeAdder(20);
+x(6); // ?
+y(7); // ?`
+    },
 ]
 export default tips
