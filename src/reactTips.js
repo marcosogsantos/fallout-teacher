@@ -1,4 +1,4 @@
-let tips = [
+let reactTips = [
     {
         textContent: `A maneira mais simples de definir um componente é escrever uma função JavaScript.`,
         codeString: `function Welcome(props) {
@@ -40,29 +40,29 @@ const [counter, setCounter] = useState(0);
 const [usersList, setUsersList] = useState([]);
 }`
     },
-    {
-        textContent: `Uma diferença importante de outras linguagens como Java é que em JavaScript, blocos não tem escopo; somente funções tem escopo. De modo que se uma variável é definida usando var numa instrução composta (por exemplo dentro de uma estrutura de controle if), ela será visível por toda a função.`,
-        codeString: `404`
-    },
-    {
-        textContent: `Uma diferença importante de outras linguagens como Java é que em JavaScript, blocos não tem escopo; somente funções tem escopo. De modo que se uma variável é definida usando var numa instrução composta (por exemplo dentro de uma estrutura de controle if), ela será visível por toda a função.`,
-        codeString: `404`
-    },
-    {
-        textContent: `Uma diferença importante de outras linguagens como Java é que em JavaScript, blocos não tem escopo; somente funções tem escopo. De modo que se uma variável é definida usando var numa instrução composta (por exemplo dentro de uma estrutura de controle if), ela será visível por toda a função.`,
-        codeString: `404`
-    },
-    {
-        textContent: `Uma diferença importante de outras linguagens como Java é que em JavaScript, blocos não tem escopo; somente funções tem escopo. De modo que se uma variável é definida usando var numa instrução composta (por exemplo dentro de uma estrutura de controle if), ela será visível por toda a função.`,
-        codeString: `404`
-    },
-    {
-        textContent: `Uma diferença importante de outras linguagens como Java é que em JavaScript, blocos não tem escopo; somente funções tem escopo. De modo que se uma variável é definida usando var numa instrução composta (por exemplo dentro de uma estrutura de controle if), ela será visível por toda a função.`,
-        codeString: `404`
-    },
-    {
-        textContent: `Uma diferença importante de outras linguagens como Java é que em JavaScript, blocos não tem escopo; somente funções tem escopo. De modo que se uma variável é definida usando var numa instrução composta (por exemplo dentro de uma estrutura de controle if), ela será visível por toda a função.`,
-        codeString: `404`
-    },
+    // {
+    //     textContent: `Uma diferença importante de outras linguagens como Java é que em JavaScript, blocos não tem escopo; somente funções tem escopo. De modo que se uma variável é definida usando var numa instrução composta (por exemplo dentro de uma estrutura de controle if), ela será visível por toda a função.`,
+    //     codeString: `404`
+    // },
+    // {
+    //     textContent: `Uma diferença importante de outras linguagens como Java é que em JavaScript, blocos não tem escopo; somente funções tem escopo. De modo que se uma variável é definida usando var numa instrução composta (por exemplo dentro de uma estrutura de controle if), ela será visível por toda a função.`,
+    //     codeString: `404`
+    // },
+    // {
+    //     textContent: `Uma diferença importante de outras linguagens como Java é que em JavaScript, blocos não tem escopo; somente funções tem escopo. De modo que se uma variável é definida usando var numa instrução composta (por exemplo dentro de uma estrutura de controle if), ela será visível por toda a função.`,
+    //     codeString: `404`
+    // },
+    // {
+    //     textContent: `Uma diferença importante de outras linguagens como Java é que em JavaScript, blocos não tem escopo; somente funções tem escopo. De modo que se uma variável é definida usando var numa instrução composta (por exemplo dentro de uma estrutura de controle if), ela será visível por toda a função.`,
+    //     codeString: `404`
+    // },
+    // {
+    //     textContent: `Uma diferença importante de outras linguagens como Java é que em JavaScript, blocos não tem escopo; somente funções tem escopo. De modo que se uma variável é definida usando var numa instrução composta (por exemplo dentro de uma estrutura de controle if), ela será visível por toda a função.`,
+    //     codeString: `404`
+    // },
+    // {
+    //     textContent: `Uma diferença importante de outras linguagens como Java é que em JavaScript, blocos não tem escopo; somente funções tem escopo. De modo que se uma variável é definida usando var numa instrução composta (por exemplo dentro de uma estrutura de controle if), ela será visível por toda a função.`,
+    //     codeString: `404`
+    // },
 ]
-export default tips
+export default reactTips

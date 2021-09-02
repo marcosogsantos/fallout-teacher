@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css'
 import CodeViwer from "./CodeViewer"
 import tips from './tips'
+import reactTips from './reactTips'
 import seedrandom from 'seedrandom';
 import Cookies from 'js-cookie'
 
@@ -31,8 +32,9 @@ const App = () => {
 
   useEffect(() => {
     const tipIndex = Cookies.get('tipIndex')
+    let allTips = tips.concat(reactTips)
     if (tipIndex) {
-      if (tipIndex >= tips.length) {
+      if (tipIndex >= allTips.length) {
         Cookies.set('tipIndex', 0)
       } else {
         Cookies.set('tipIndex', Number(tipIndex) + 1)
@@ -40,8 +42,8 @@ const App = () => {
     } else {
       Cookies.set('tipIndex', 0)
     };
-    randomize(tips)
-    const randomTip = tips[Cookies.get('tipIndex')];
+    randomize(allTips)
+    const randomTip = allTips[Cookies.get('tipIndex')];
     setRandomTip(randomTip)
 
 
