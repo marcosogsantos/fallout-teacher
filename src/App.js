@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './App.css'
-import CodeViwer from "./CodeViewer"
-import tips from './tips'
-import reactTips from './reactTips'
+import './App.css';
+import CodeViwer from "./components/CodeViewer";
+import MainContainer from "./components/MainContainer";
+import tips from './tips';
+import reactTips from './reactTips';
 import seedrandom from 'seedrandom';
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
 
 let randomize = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -155,7 +156,7 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <MainContainer>
       <div className="tip">
         {getRandomTip ? getRandomTip.textContent : "Loading..."}
       </div>
@@ -225,7 +226,7 @@ const App = () => {
           </div>
         </div>
       </div>
-    </div>
+    </MainContainer>
   );
 }
 
