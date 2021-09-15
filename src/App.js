@@ -7,6 +7,7 @@ import reactTips from './reactTips';
 import Cookies from 'js-cookie';
 import randomizer from './utils/randomizer';
 import startPlaneRotation from './utils/startPlaneRotation';
+import updateLogoBright from './utils/updateLogoBright';
 
 const App = () => {
 
@@ -18,8 +19,8 @@ const App = () => {
     exploded: 0,
     shadowAlpha_1: 0,
     shadowAlpha_2: 0,
-    showLogo: 0.7
-
+    showLogo: 0.7,
+    reverseUpdateLogoBright: false
   };
 
   const [getRandomTip, setRandomTip] = useState('');
@@ -45,29 +46,7 @@ const App = () => {
     document.documentElement.style.setProperty("--exploded", CONFIG.exploded)
 
     var planeRotationInterval = startPlaneRotation(CONFIG)
-    var updateLogoBrightInterval
-
-    var reverseUpdateLogoBright = false
-    const updateLogoBright = () => {
-      if (reverseUpdateLogoBright) {
-        if (CONFIG.shadowAlpha_2 < 80) {
-          CONFIG.shadowAlpha_2 = CONFIG.shadowAlpha_2 + .1
-          document.documentElement.style.setProperty("--shadowAlpha_2", CONFIG.shadowAlpha_2 + "px")
-        } else {
-          reverseUpdateLogoBright = false
-        }
-      } else {
-        if (CONFIG.shadowAlpha_2 > 30) {
-          CONFIG.shadowAlpha_2 = CONFIG.shadowAlpha_2 - .1
-          document.documentElement.style.setProperty("--shadowAlpha_2", CONFIG.shadowAlpha_2 + "px")
-        } else {
-          reverseUpdateLogoBright = true
-        }
-      }
-
-    }
-
-    updateLogoBrightInterval = setInterval(() => { updateLogoBright() }, 10)
+    var updateLogoBrightInterval = setInterval(() => { updateLogoBright(CONFIG) }, 10)
     return () => {
       clearInterval(updateLogoBrightInterval);
       clearInterval(planeRotationInterval);
