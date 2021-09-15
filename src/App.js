@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
 import MainContainer from './components/MainContainer';
-import TextTip from './components/TextTip';
+import TextTip from './components/TipText';
 import Card3D from './components/Card3D';
 import tips from './tips';
 import reactTips from './reactTips';
