@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import MainContainer from './components/MainContainer';
+import TextTip from './components/TextTip';
 import Card3D from './components/Card3D';
 import tips from './tips';
 import reactTips from './reactTips';
@@ -16,7 +17,7 @@ let randomize = (array) => {
 }
 
 const App = () => {
-
+  
   const CONFIG = {
     x: 0,
     y: 0,
@@ -157,9 +158,9 @@ const App = () => {
 
   return (
     <MainContainer>
-      <div className="tip">
+      <TextTip>
         {getRandomTip ? getRandomTip.textContent : "Loading..."}
-      </div>
+      </TextTip>
       <Card3D getRandomTip={getRandomTip}/>
     </MainContainer>
   );
