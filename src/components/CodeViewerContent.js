@@ -8,5 +8,9 @@ const CodeViewerContent = styled.div`
   padding: 30px;
   border: solid 1px rgba(25, 255, 25,.2);
   border-radius: 2em;
+
+  @media (max-width: 1200px) {
+    padding: 10px;
+  }
 ` 
 export default CodeViewerContent

@@ -3,6 +3,8 @@ import BackgroundImage from '../images/bg.jpg'
 
 const MainContainer = styled.div`
     min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;

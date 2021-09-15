@@ -8,5 +8,12 @@ const CodeViewerContentContainer = styled.div`
   height: 100%;
   transform: translateY(-50%);
   padding:  22px;
+
+  @media (max-width: 820px) {
+    padding:  5px;
+    .language-javascript {
+      font-size: 5px !important;
+    }
+  }
 ` 
 export default CodeViewerContentContainer

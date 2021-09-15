@@ -5,7 +5,7 @@ const CardLogoStyle = styled.div`
   display:             flex;
   flex:                1 1 100%;
   height:              100px;
-  width: 100px;
+  width:               100px;
   overflow:            hidden;
   position:            relative;
   top: 50%;
@@ -15,6 +15,11 @@ const CardLogoStyle = styled.div`
   border: 4px solid rgb(0, 253, 55);
   box-shadow: rgb(50, 255, 50) 0px 0px var(--shadowAlpha_2),  rgb(50, 255, 50) 0px 0px var(--shadowAlpha_2);;
   opacity:             var(--showLogo);
+
+  @media (max-width: 1200px) {
+    height:              50px;
+    width:               50px;
+  }
 
   img {
     filter:              grayscale(100%) contrast(1) blur(var(--blur));
@@ -26,22 +31,23 @@ const CardLogoStyle = styled.div`
     opacity:             var(--opacity);
     position:            relative;
     width:               100%;
-}
-&::before {
-  background-color:    var(--foreground) !important;
-  bottom:              0;
-  content:             '';
-  height:              100%;
-  left:                0;
-  mix-blend-mode:      var(--fg-blend);
-  position:            absolute;
-  right:               0;
-  top:                 0;
-  width:               100%;
-  z-index:             1;
-}
-  `
-const CardLogo = () =>{
+  }
+
+  &::before {
+    background-color:    var(--foreground) !important;
+    bottom:              0;
+    content:             '';
+    height:              100%;
+    left:                0;
+    mix-blend-mode:      var(--fg-blend);
+    position:            absolute;
+    right:               0;
+    top:                 0;
+    width:               100%;
+    z-index:             1;
+  }`
+
+const CardLogo = () => {
   return (
     <CardLogoStyle>
       <img src="https://cdn.iconscout.com/icon/free/png-256/javascript-2038874-1720087.png"></img>
