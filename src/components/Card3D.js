@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import CodeViwer from './CodeViewer';
 import Scene from './Scene';
 import Plane from './Plane';
@@ -9,8 +10,36 @@ import CardSide from './CardSide';
 import CardLogo from './CardLogo';
 import CodeViewerContentContainer from './CodeViewerContentContainer';
 import CodeViewerContent from './CodeViewerContent';
+import startPlaneRotation from '../utils/startPlaneRotation';
+import updateLogoBright from '../utils/updateLogoBright';
 
 const Card3D = (props) => {
+  
+  const CONFIG = {
+    x: 0,
+    y: 0,
+    z: 0,
+    scale: 2,
+    exploded: 0,
+    shadowAlpha_1: 0,
+    shadowAlpha_2: 0,
+    showLogo: 0.7,
+    reverseUpdateLogoBright: false
+  };
+
+  useEffect(() => {
+    document.documentElement.style.setProperty("--scale", CONFIG.scale);
+    document.documentElement.style.setProperty("--exploded", CONFIG.exploded)
+
+    var planeRotationInterval = startPlaneRotation(CONFIG)
+    var updateLogoBrightInterval = setInterval(() => { updateLogoBright(CONFIG) }, 10)
+    return () => {
+      clearInterval(updateLogoBrightInterval);
+      clearInterval(planeRotationInterval);
+    }
+
+  }, []);
+
     return (<CardContainer>
         <Scene>
           <Plane id="transform">
