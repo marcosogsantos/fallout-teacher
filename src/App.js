@@ -4,19 +4,12 @@ import TextTip from './components/TipText';
 import Card3D from './components/Card3D';
 import tips from './tips';
 import reactTips from './reactTips';
-import seedrandom from 'seedrandom';
 import Cookies from 'js-cookie';
-
-let randomize = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const myRandomFunction = new seedrandom('randomSeed' + i);
-    const randomArrayIndex = Math.floor(myRandomFunction.quick() * (i + 1));
-    [array[i], array[randomArrayIndex]] = [array[randomArrayIndex], array[i]];
-  }
-}
+import randomizer from './utils/randomizer';
+import startPlaneRotation from './utils/startPlaneRotation';
 
 const App = () => {
-  
+
   const CONFIG = {
     x: 0,
     y: 0,
@@ -30,7 +23,6 @@ const App = () => {
   };
 
   const [getRandomTip, setRandomTip] = useState('');
-
   useEffect(() => {
     const tipIndex = Cookies.get('tipIndex')
     let allTips = tips.concat(reactTips)
@@ -43,89 +35,17 @@ const App = () => {
     } else {
       Cookies.set('tipIndex', 0)
     };
-    randomize(allTips)
+    randomizer(allTips)
     const randomTip = allTips[Cookies.get('tipIndex')];
     setRandomTip(randomTip)
+  }, []);
 
-
-    var updateRotateZ
-    var updateLogoBrightInterval
-
+  useEffect(() => {
     document.documentElement.style.setProperty("--scale", CONFIG.scale);
     document.documentElement.style.setProperty("--exploded", CONFIG.exploded)
-    var el
-    const defineRotatePlane = () => {
-      el = document.getElementById('transform')
-      if (!el) {
-        setTimeout(() => {
-          defineRotatePlane()
-        }, 100)
-      } else {
 
-        var isDown = false
-        var mouseStartClickPosition = {
-          x: 0,
-          y: 9
-        }
-
-        function wheel(e) {
-          e.preventDefault();
-          var delta = e.wheelDelta || -e.detail;
-          CONFIG.scale += delta > 0 ? .1 : -.1;
-          document.documentElement.style.setProperty("--scale", CONFIG.scale);
-        }
-
-        document.addEventListener('mousewheel', wheel, false);
-        document.addEventListener('DOMMouseScroll', wheel, false);
-
-        document.addEventListener('mousedown', function (e) {
-          e.preventDefault();
-          isDown = true;
-          mouseStartClickPosition = {
-            x: e.clientX,
-            y: e.clientY
-          };
-        }, false);
-
-        document.addEventListener('mousemove', function (e) {
-
-          if (isDown) {
-            if (e.clientX < mouseStartClickPosition.x) {
-              var newZ = CONFIG.z >= 360 ? 0 : CONFIG.z + 2
-              document.documentElement.style.setProperty("--z", newZ)
-            } else {
-              var newZ = CONFIG.z <= 0 ? 360 : CONFIG.z - 2
-              document.documentElement.style.setProperty("--z", newZ)
-            }
-            CONFIG.z = newZ
-          }
-          mouseStartClickPosition = {
-            x: e.clientX,
-            y: e.clientY
-          };
-        }, false);
-
-        document.addEventListener('mouseup', function () {
-          isDown = false;
-        }, false);
-
-        const update = () => {
-          if (!isDown) {
-            var newZ = CONFIG.z >= 360 ? 0 : CONFIG.z + .2
-            document.documentElement.style.setProperty("--z", newZ)
-            CONFIG.z = newZ
-          }
-          if (CONFIG.z > 60 && CONFIG.z < 243) {
-            CONFIG.showLogo = 0.8
-          } else {
-            CONFIG.showLogo = 0
-          }
-          document.documentElement.style.setProperty("--showLogo", CONFIG.showLogo)
-        }
-        updateRotateZ = setInterval(() => { update() }, 25)
-      }
-    }
-    defineRotatePlane()
+    var planeRotationInterval = startPlaneRotation(CONFIG)
+    var updateLogoBrightInterval
 
     var reverseUpdateLogoBright = false
     const updateLogoBright = () => {
@@ -150,7 +70,7 @@ const App = () => {
     updateLogoBrightInterval = setInterval(() => { updateLogoBright() }, 10)
     return () => {
       clearInterval(updateLogoBrightInterval);
-      clearInterval(updateRotateZ);
+      clearInterval(planeRotationInterval);
     }
 
   }, []);
@@ -160,7 +80,7 @@ const App = () => {
       <TextTip>
         {getRandomTip ? getRandomTip.textContent : "Loading..."}
       </TextTip>
-      <Card3D getRandomTip={getRandomTip}/>
+      <Card3D getRandomTip={getRandomTip} />
     </MainContainer>
   );
 }
