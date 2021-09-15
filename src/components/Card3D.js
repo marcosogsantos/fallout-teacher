@@ -13,19 +13,19 @@ import CodeViewerContent from './CodeViewerContent';
 import startPlaneRotation from '../utils/startPlaneRotation';
 import updateLogoBright from '../utils/updateLogoBright';
 
+const CONFIG = {
+  x: 0,
+  y: 0,
+  z: 0,
+  scale: 2,
+  exploded: 0,
+  shadowAlpha_1: 0,
+  shadowAlpha_2: 0,
+  showLogo: 0.7,
+  reverseUpdateLogoBright: false
+};
+
 const Card3D = (props) => {
-  
-  const CONFIG = {
-    x: 0,
-    y: 0,
-    z: 0,
-    scale: 2,
-    exploded: 0,
-    shadowAlpha_1: 0,
-    shadowAlpha_2: 0,
-    showLogo: 0.7,
-    reverseUpdateLogoBright: false
-  };
 
   useEffect(() => {
     document.documentElement.style.setProperty("--scale", CONFIG.scale);

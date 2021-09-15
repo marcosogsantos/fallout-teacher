@@ -50,7 +50,7 @@ const CardLogoStyle = styled.div`
 const CardLogo = () => {
   return (
     <CardLogoStyle>
-      <img src="https://cdn.iconscout.com/icon/free/png-256/javascript-2038874-1720087.png"></img>
+      <img alt="Javascript Logo" src="https://cdn.iconscout.com/icon/free/png-256/javascript-2038874-1720087.png"></img>
     </CardLogoStyle>
   )
 }

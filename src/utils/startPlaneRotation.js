@@ -6,7 +6,7 @@ const startPlaneRotation = (CONFIG) => {
             startPlaneRotation()
         }, 100)
     } else {
-
+        var newZ
         var isDown = false
         var mouseStartClickPosition = {
             x: 0,
@@ -36,10 +36,10 @@ const startPlaneRotation = (CONFIG) => {
 
             if (isDown) {
                 if (e.clientX < mouseStartClickPosition.x) {
-                    var newZ = CONFIG.z >= 360 ? 0 : CONFIG.z + 2
+                    newZ = CONFIG.z >= 360 ? 0 : CONFIG.z + 2
                     document.documentElement.style.setProperty("--z", newZ)
                 } else {
-                    var newZ = CONFIG.z <= 0 ? 360 : CONFIG.z - 2
+                    newZ = CONFIG.z <= 0 ? 360 : CONFIG.z - 2
                     document.documentElement.style.setProperty("--z", newZ)
                 }
                 CONFIG.z = newZ
@@ -56,7 +56,7 @@ const startPlaneRotation = (CONFIG) => {
 
         const update = () => {
             if (!isDown) {
-                var newZ = CONFIG.z >= 360 ? 0 : CONFIG.z + .2
+                newZ = CONFIG.z >= 360 ? 0 : CONFIG.z + .2
                 document.documentElement.style.setProperty("--z", newZ)
                 CONFIG.z = newZ
             }
