@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import CodeViwer from "./components/CodeViewer";
-import MainContainer from "./components/MainContainer";
+import MainContainer from './components/MainContainer';
+import Card3D from './components/Card3D';
 import tips from './tips';
 import reactTips from './reactTips';
 import seedrandom from 'seedrandom';
@@ -160,72 +160,7 @@ const App = () => {
       <div className="tip">
         {getRandomTip ? getRandomTip.textContent : "Loading..."}
       </div>
-      <div className="sceneContainer">
-        <div className="scene">
-          <div id="transform" className="plane">
-            <div className="book">
-              <div className="cuboid book__cover book__cover--front">
-                <div className="cuboid__side">
-                  <div className="codeContentContainer">
-                    <div className="codeContent">
-                      <CodeViwer>
-                        {getRandomTip ? getRandomTip.codeString : 'Loading...'}
-                      </CodeViwer>
-                    </div>
-                  </div>
-                </div>
-                <div className="cuboid__side">
-                  <div className="img-wrapper">
-                    <img src="https://cdn.iconscout.com/icon/free/png-256/javascript-2038874-1720087.png"></img>
-                  </div>
-                </div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-              </div>
-              <div className="cuboid book__cover book__cover--rear">
-                <div className="cuboid__side">
-                  <div className="logo">
-                  </div>
-                </div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-              </div>
-              <div className="cuboid book__spine">
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-              </div>
-              <div className="cuboid book__spine">
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side">
-                  <div className="avatar__holder"><img src="https://assets.codepen.io/605876/avatar.png" /></div>
-
-                </div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-              </div>
-              <div className="cuboid book__pages">
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-                <div className="cuboid__side"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Card3D getRandomTip={getRandomTip}/>
     </MainContainer>
   );
 }
