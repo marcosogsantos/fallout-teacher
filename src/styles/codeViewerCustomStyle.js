@@ -1,7 +1,7 @@
 const customStyle = {
   "hljs": {
     "display": "block",
-    "overflowX": "auto",
+    "overflowX": "hidden",
     "padding": "0.5em",
     "background": "none",
     "color": "#00ff00",
